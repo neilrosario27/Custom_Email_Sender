@@ -5,6 +5,7 @@ This is a full-stack email-sending application that allows users to upload a CSV
 ---
 
 ## Features
+
 - User Authentication (Supabase)
 - CSV file upload and processing
 - Dynamic email personalization
@@ -28,38 +29,53 @@ This is a full-stack email-sending application that allows users to upload a CSV
 ## Steps to Run the App
 
 ### 1. Clone the Repository
+
 ```bash
 git clone https://github.com/your-repo/email-sender-app.git
 cd email-sender-app
 ```
 
 ### 2. Backend Setup
+
 ```bash
 cd backend
 python -m venv venv
-cd venv\Scripts
-./activate
-cd ../..
+venv\Scripts\activate
 pip install -r requirements.txt
 python app.py
 ```
 
+#### Backend will run at
+
+```bash
+http://127.0.0.1:5000
+```
+
 ### 3. Frontend Setup
+
 ```bash
 cd frontend/email-sender
 npm install
 npm run dev
 ```
 
+#### Frontend will run at
+
+```bash
+http://localhost:5173/
+```
+
 ## .env Setup
 
 ### Backend
+
 ```bash
 cd backend
 touch .env
 ```
 
 #### Add the following keys to .env:
+
 ```bash
 MAILGUN_DOMAIN=
 MAILGUN_API_KEY=
@@ -68,20 +84,24 @@ SUPABASE_URL=
 SUPABASE_KEY=
 OPENAI_API_KEY=
 ```
+
 ### Frontend
-``` bash
+
+```bash
 cd frontend\email-sender
 touch .env
 ```
+
 #### Add the following keys to .env
-``` bash
+
+```bash
 VITE_SUPABASE_URL=
 VITE_SUPABASE_KEY=
 ```
 
-
 ## Directory Structure
-``` bash
+
+```bash
 backend/
     app.py
     requirements.txt
@@ -95,4 +115,3 @@ frontend/
         App.jsx
         package.json
 ```
-

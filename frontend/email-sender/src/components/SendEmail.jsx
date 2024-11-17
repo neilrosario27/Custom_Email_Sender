@@ -1,26 +1,27 @@
-
-
-import  { useEffect, useState } from 'react';
-import axios from 'axios';
+import { useEffect, useState } from "react";
+import axios from "axios";
 
 const SendEmail = ({ userId, userEmail }) => {
   const [data, setData] = useState([]);
-  const [subject, setSubject] = useState('');
-  const [message, setMessage] = useState('');
-  const [status, setStatus] = useState('');
+  const [subject, setSubject] = useState("");
+  const [message, setMessage] = useState("");
+  const [status, setStatus] = useState("");
 
   // Fetch recently uploaded data
   useEffect(() => {
     const fetchRecentData = async () => {
       try {
-        const response = await axios.get('http://127.0.0.1:5000/recent-upload', {
-          params: { user_id: userId },
-        });
+        const response = await axios.get(
+          "http://127.0.0.1:5000/recent-upload",
+          {
+            params: { user_id: userId },
+          }
+        );
         if (response.data.success) {
           setData(response.data.data);
         }
       } catch (error) {
-        console.error('Error fetching recent data:', error);
+        console.error("Error fetching recent data:", error);
       }
     };
 
@@ -29,14 +30,14 @@ const SendEmail = ({ userId, userEmail }) => {
 
   const handleSendEmail = async () => {
     if (!subject || !message) {
-      setStatus('Subject and Message are required');
+      setStatus("Subject and Message are required");
       return;
     }
 
     const emails = data.map((row) => row.email); // Extract emails from data
 
     try {
-      const response = await axios.post('http://127.0.0.1:5000/send-email', {
+      const response = await axios.post("http://127.0.0.1:5000/send-email", {
         emails,
         subject,
         message,
@@ -44,13 +45,13 @@ const SendEmail = ({ userId, userEmail }) => {
       });
 
       if (response.data.success) {
-        setStatus('Emails sent successfully!');
+        setStatus("Emails sent successfully!");
       } else {
         setStatus(`Error: ${response.data.message}`);
       }
     } catch (error) {
-      console.error('Error sending email:', error);
-      setStatus('Failed to send emails');
+      console.error("Error sending email:", error);
+      setStatus("Failed to send emails");
     }
   };
 

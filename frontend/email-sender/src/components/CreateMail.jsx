@@ -271,16 +271,43 @@ const CreateMail = () => {
           placeholder="Enter schedule time (optional)"
         />
       </div>
+      
       <button onClick={handleGenerate}>Generate Email</button>
-      <div>
-        <label>Generated Email:</label>
-        <textarea
-          value={generatedEmail}
-          onChange={(e) => setGeneratedEmail(e.target.value)}
-          placeholder="Generated email will appear here"
-        />
-      </div>
+      <div style={{ margin: "20px 0" }}>
+  <label
+    style={{
+      display: "block",
+      marginBottom: "10px",
+      fontWeight: "bold",
+    }}
+  >
+    Generated Email:
+  </label>
+  <textarea
+    value={generatedEmail}
+    onChange={(e) => setGeneratedEmail(e.target.value)}
+    placeholder="Generated email will appear here"
+    style={{
+      width: "90%", // Reducing the width by 10%
+      height: "200px", // Increasing the height for better visibility
+      padding: "10px",
+      border: "1px solid #ccc",
+      borderRadius: "4px",
+      resize: "vertical", // Allow vertical resizing
+      fontFamily: "Arial, sans-serif",
+      fontSize: "14px",
+    }}
+  />
+</div>
+
       <button onClick={handleSend}>Send Emails</button>
+      <p className="text-sm text-gray-600 mb-4">
+          <strong>Tip:</strong> You can edit the generated message and use
+          placeholders for personalization. For example, if your CSV has columns
+          like <strong>Name</strong> and <strong>Email</strong>, type{" "}
+          <code>{"{Name}"}</code> or <code>{"{Email}"}</code> to personalize the
+          message for each recipient.
+        </p>
       {status && <p>{status}</p>}
 
       <h3>Uploaded CSV Data:</h3>

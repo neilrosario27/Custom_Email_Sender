@@ -1,58 +1,3 @@
-// import { useState } from 'react';
-// import axios from 'axios';
-// import { useNavigate } from 'react-router-dom';
-
-// const FileUpload = ({ userId }) => {
-//   const [file, setFile] = useState(null);
-//   const [status, setStatus] = useState('');
-//   const navigate = useNavigate();
-
-//   const handleFileChange = (e) => {
-//     setFile(e.target.files[0]);
-//   };
-
-//   const handleUpload = async () => {
-//     if (!file) {
-//       setStatus('Please select a file first!');
-//       return;
-//     }
-
-//     const formData = new FormData();
-//     formData.append('file', file);
-//     formData.append('user_id', userId);
-
-//     try {
-//       const response = await axios.post('http://127.0.0.1:5000/upload', formData, {
-//         headers: {
-//           'Content-Type': 'multipart/form-data',
-//         },
-//       });
-
-//       if (response.data.success) {
-//         setStatus('File uploaded successfully!');
-//         // Redirect to CreateMail page with CSV content
-//         navigate('/create-mail', { state: { csvData: response.data.data } });
-//       } else {
-//         setStatus('File upload failed');
-//       }
-//     } catch (error) {
-//       console.error('Error uploading file:', error);
-//       const errorMessage = error.response?.data?.message || 'File upload failed!';
-//       setStatus(errorMessage);
-//     }
-//   };
-
-//   return (
-//     <div>
-//       <h2>Upload a File</h2>
-//       <input type="file" onChange={handleFileChange} />
-//       <button onClick={handleUpload}>Upload</button>
-//       {status && <p>{status}</p>}
-//     </div>
-//   );
-// };
-
-// export default FileUpload;
 
 
 import { useState } from 'react';
@@ -113,6 +58,9 @@ const FileUpload = ({ userId }) => {
           width: '100%',
         }}
       />
+      <p style={{ fontSize: '14px', color: '#555', margin: '10px 0' }}>
+        Please upload a CSV file containing a column named <strong>Email</strong>.
+      </p>
       <button
         onClick={handleUpload}
         style={{
