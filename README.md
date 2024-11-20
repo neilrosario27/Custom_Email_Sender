@@ -31,8 +31,7 @@ This is a full-stack email-sending application that allows users to upload a CSV
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/your-repo/email-sender-app.git
-cd email-sender-app
+git clone https://github.com/neilrosario27/Custom_Email_Sender.git
 ```
 
 ### 2. Backend Setup
